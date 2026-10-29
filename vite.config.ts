@@ -5,6 +5,9 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
+    // Relative base path ensures GitHub Pages works seamlessly on both
+    // root (alberthugo.github.io) and subpaths (alberthugo.github.io/<repo-name>)
+    base: './',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {

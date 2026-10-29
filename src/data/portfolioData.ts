@@ -1,3 +1,8 @@
+import hugoAvatar from '../assets/images/hugo_profile_portrait_1793280037537.jpg';
+import projectFintech from '../assets/images/project_fintech_platform_1793280038169.jpg';
+import projectMobile from '../assets/images/project_mobile_app_1793280039122.jpg';
+import projectAi from '../assets/images/project_ai_workflow_1793280037901.jpg';
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -80,7 +85,7 @@ export const PROFILE_DATA = {
     { label: 'Uptime & Kualitas', value: '99.9%' },
   ],
   bio: `Saya seorang Software Engineer dan Full-Stack Developer yang berfokus pada arsitektur web modern, sistem terdistribusi, dan user interface yang presisi. Berpengalaman dalam merancang aplikasi skala enterprise menggunakan ekosistem TypeScript, React, Node.js, Go, serta orkestrasi cloud modern di AWS dan Google Cloud. Menekankan performa kode yang optimal, desain yang intuitif, dan rekayasa perangkat lunak berstandar industri.`,
-  avatar: '/src/assets/images/hugo_profile_portrait_1793280037537.jpg',
+  avatar: hugoAvatar,
 };
 
 export const PROJECTS_DATA: ProjectItem[] = [
@@ -91,7 +96,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: 'Full-Stack',
     year: '2024',
     description: 'Sistem dashboard finansial komprehensif yang memproses jutaan transaksi mutasi rekening, menyajikan visualisasi analitik real-time, dan mengotomatiskan rekonsiliasi pembayaran antar bank.',
-    image: '/src/assets/images/project_fintech_platform_1793280038169.jpg',
+    image: projectFintech,
     technologies: ['React 19', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Redis', 'WebSockets'],
     metrics: 'Memproses $1.2M+ volume transaksi harian dengan latensi respons <80ms',
     highlights: [
@@ -111,7 +116,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: 'Mobile & Fintech',
     year: '2024',
     description: 'Solusi terpadu untuk UMKM dan pengguna ritel yang memadukan pembayaran instan QRIS, pelacakan rute kurir last-mile secara langsung di peta, dan manajemen multi-akun.',
-    image: '/src/assets/images/project_mobile_app_1793280039122.jpg',
+    image: projectMobile,
     technologies: ['React Native', 'TypeScript', 'Tailwind CSS', 'GraphQL', 'Express.js', 'PostGIS'],
     metrics: '99.4% akurasi estimasi kedatangan kurir dan 15.000+ pengguna aktif bulanan',
     highlights: [
@@ -131,7 +136,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: 'Cloud & AI',
     year: '2023 - 2024',
     description: 'Platform komputasi cloud terdistribusi dengan antarmuka grafis node-based untuk merancang, menguji, dan memantau pipeline data lakehouse skala besar secara otomatis.',
-    image: '/src/assets/images/project_ai_workflow_1793280037901.jpg',
+    image: projectAi,
     technologies: ['Next.js', 'Python FastAPI', 'Apache Kafka', 'Docker', 'Google Cloud Run', 'Terraform'],
     metrics: 'Mengolah throughput data 2.4 TB per jam dengan auto-scaling otomatis',
     highlights: [
@@ -151,7 +156,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: 'Full-Stack',
     year: '2023',
     description: 'Aplikasi catatan dan dokumentasi tim teknik berkecepatan kilat yang memungkinkan ratusan engineer menyunting dokumen bersama tanpa konflik data.',
-    image: '/src/assets/images/project_fintech_platform_1793280038169.jpg',
+    image: projectFintech,
     technologies: ['React', 'TypeScript', 'Go', 'Yjs CRDT', 'Tailwind CSS', 'Docker'],
     metrics: 'Sinkronisasi sub-50ms antar klien dengan konsumsi memori 60% lebih hemat',
     highlights: [
@@ -170,7 +175,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: 'Open Source',
     year: '2024',
     description: 'Pustaka komponen React dan Tailwind modern tanpa dependensi berat, dioptimalkan untuk aksesibilitas keyboard dan fleksibilitas token desain skala besar.',
-    image: '/src/assets/images/project_mobile_app_1793280039122.jpg',
+    image: projectMobile,
     technologies: ['TypeScript', 'React 19', 'Tailwind CSS', 'Radix Primitives', 'Storybook', 'Vitest'],
     metrics: '1.200+ bintang GitHub & digunakan oleh puluhan proyek web open source',
     highlights: [
