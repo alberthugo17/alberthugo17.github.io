@@ -1,8 +1,35 @@
+/**
+ * ===================================================================================
+ * PORTOFOLIO DATA & KONFIGURASI KONTEN
+ * Hugo Antonio Hien Wijaya - Software Engineer & Full-Stack Developer
+ * ===================================================================================
+ * Berkas ini adalah pusat pengaturan seluruh isi website:
+ * 1. FOTO PROFIL & GAMBAR PROYEK -> Lihat bagian [BAGIAN 1] di bawah.
+ * 2. DATA DIRI & MEDIA SOSIAL   -> Lihat bagian [BAGIAN 3] `PROFILE_DATA`.
+ * 3. DAFTAR PROYEK / PORTFOLIO   -> Lihat bagian [BAGIAN 4] `PROJECTS_DATA`.
+ * 4. SERTIFIKASI RESMI           -> Lihat bagian [BAGIAN 5] `CERTIFICATIONS_DATA`.
+ * 5. RIWAYAT PENDIDIKAN          -> Lihat bagian [BAGIAN 6] `EDUCATION_DATA`.
+ * 6. PENGALAMAN KERJA            -> Lihat bagian [BAGIAN 7] `EXPERIENCE_DATA`.
+ * 7. MATRIKS KEAHLIAN (SKILLS)   -> Lihat bagian [BAGIAN 8] `SKILL_CATEGORIES`.
+ * ===================================================================================
+ */
+
+/* ===================================================================================
+ * [BAGIAN 1] FOTO PROFIL & GAMBAR PROYEK
+ * -----------------------------------------------------------------------------------
+ * Cara Mengganti Foto / Gambar:
+ * 1. Simpan berkas foto/gambar baru Anda ke dalam folder: `src/assets/images/`
+ * 2. Impor berkas tersebut menggunakan sintaks `import namaVariabel from '../assets/images/nama_file.jpg';`
+ * 3. Gunakan namaVariabel tersebut pada `avatar` atau `image` di bawah.
+ * =================================================================================== */
 import hugoAvatar from '../assets/images/hugo_profile_portrait_1793280037537.jpg';
 import projectFintech from '../assets/images/project_fintech_platform_1793280038169.jpg';
 import projectMobile from '../assets/images/project_mobile_app_1793280039122.jpg';
 import projectAi from '../assets/images/project_ai_workflow_1793280037901.jpg';
 
+/* ===================================================================================
+ * [BAGIAN 2] DEFINISI TIPE DATA (TYPESCRIPT INTERFACES)
+ * =================================================================================== */
 export interface ProjectItem {
   id: string;
   title: string;
@@ -10,7 +37,7 @@ export interface ProjectItem {
   category: 'Full-Stack' | 'Mobile & Fintech' | 'Cloud & AI' | 'Open Source';
   year: string;
   description: string;
-  image: string;
+  image: string; // Menggunakan variabel import dari [BAGIAN 1]
   technologies: string[];
   metrics?: string;
   highlights: string[];
@@ -64,30 +91,60 @@ export interface SkillCategory {
   skills: { name: string; level: number; note: string }[];
 }
 
+/* ===================================================================================
+ * [BAGIAN 3] DATA DIRI, BIOGRAFI & TAUTAN MEDIA SOSIAL (PROFILE_DATA)
+ * -----------------------------------------------------------------------------------
+ * Ubah nama, peran, kontak email, nomor WhatsApp, serta tautan akun LinkedIn/GitHub Anda di sini.
+ * =================================================================================== */
 export const PROFILE_DATA = {
+  // Nama Lengkap dan Panggilan
   name: 'Hugo Antonio Hien Wijaya',
   shortName: 'Hugo Antonio',
+
+  // Profesi / Jabatan Utama
   role: 'Software Engineer & Full-Stack Developer',
+
+  // Slogan / Tagline Singkat
   tagline: 'Membangun aplikasi web mutakhir dengan arsitektur tangguh, performa tinggi, dan pengalaman pengguna yang elegan.',
+
+  // Lokasi & Ketersediaan Kerja
   location: 'Jakarta, Indonesia · Tersedia untuk Kolaborasi Global & Remote',
+
+  // Informasi Kontak Langsung
   email: 'djojowyn@gmail.com',
   phone: '+62 812-8899-2310',
+
+  // Tautan Langsung Chat WhatsApp (Pesan Otomatis)
   whatsappUrl: 'https://wa.me/6281288992310?text=Halo%20Hugo%20Antonio,%20saya%20melihat%20portofolio%20Anda%20dan%20tertarik%20untuk%20berdiskusi.',
+
+  // Akun Jejaring Sosial & Media
   socials: {
     linkedin: 'https://www.linkedin.com/in/hugoantonio/',
     github: 'https://github.com/hugoantonio',
     email: 'mailto:djojowyn@gmail.com',
   },
+
+  // Statistik Utama di Bagian Hero
   stats: [
     { label: 'Tahun Pengalaman', value: '4+' },
     { label: 'Proyek Selesai', value: '25+' },
     { label: 'Sertifikasi Global', value: '5' },
     { label: 'Uptime & Kualitas', value: '99.9%' },
   ],
+
+  // Biografi Singkat & Latar Belakang
   bio: `Saya seorang Software Engineer dan Full-Stack Developer yang berfokus pada arsitektur web modern, sistem terdistribusi, dan user interface yang presisi. Berpengalaman dalam merancang aplikasi skala enterprise menggunakan ekosistem TypeScript, React, Node.js, Go, serta orkestrasi cloud modern di AWS dan Google Cloud. Menekankan performa kode yang optimal, desain yang intuitif, dan rekayasa perangkat lunak berstandar industri.`,
+
+  // Foto Profil (mengacu pada import di BAGIAN 1)
   avatar: hugoAvatar,
 };
 
+/* ===================================================================================
+ * [BAGIAN 4] DAFTAR PROYEK (PROJECTS_DATA)
+ * -----------------------------------------------------------------------------------
+ * Tambah, edit, atau hapus proyek portofolio Anda di sini.
+ * Setiap proyek mencakup judul, gambar tangkapan layar, teknologi, deskripsi, tautan demo & GitHub.
+ * =================================================================================== */
 export const PROJECTS_DATA: ProjectItem[] = [
   {
     id: 'fineo-enterprise',
@@ -96,7 +153,7 @@ export const PROJECTS_DATA: ProjectItem[] = [
     category: 'Full-Stack',
     year: '2024',
     description: 'Sistem dashboard finansial komprehensif yang memproses jutaan transaksi mutasi rekening, menyajikan visualisasi analitik real-time, dan mengotomatiskan rekonsiliasi pembayaran antar bank.',
-    image: projectFintech,
+    image: projectFintech, // Foto/Screenshot Proyek
     technologies: ['React 19', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Redis', 'WebSockets'],
     metrics: 'Memproses $1.2M+ volume transaksi harian dengan latensi respons <80ms',
     highlights: [
@@ -105,9 +162,9 @@ export const PROJECTS_DATA: ProjectItem[] = [
       'Enkripsi multi-layer sesuai standar keamanan perbankan OWASP dan enkripsi transit TLS 1.3.',
       'Dashboard responsif sempurna pada layar mobile hingga monitor ultrawide.'
     ],
-    liveUrl: 'https://demo-fineo.example.com',
-    githubUrl: 'https://github.com/hugoantonio/fineo-fintech-core',
-    featured: true,
+    liveUrl: 'https://demo-fineo.example.com', // Tautan Live Demo
+    githubUrl: 'https://github.com/hugoantonio/fineo-fintech-core', // Tautan Repositori GitHub
+    featured: true, // true jika ingin ditampilkan lebih besar di Bento Grid
   },
   {
     id: 'payflex-mobile',
@@ -189,6 +246,11 @@ export const PROJECTS_DATA: ProjectItem[] = [
   },
 ];
 
+/* ===================================================================================
+ * [BAGIAN 5] DAFTAR SERTIFIKASI PROFESIONAL (CERTIFICATIONS_DATA)
+ * -----------------------------------------------------------------------------------
+ * Tambah atau perbarui kredensial sertifikasi resmi Anda di sini.
+ * =================================================================================== */
 export const CERTIFICATIONS_DATA: CertificationItem[] = [
   {
     id: 'aws-saa',
@@ -257,6 +319,11 @@ export const CERTIFICATIONS_DATA: CertificationItem[] = [
   },
 ];
 
+/* ===================================================================================
+ * [BAGIAN 6] RIWAYAT PENDIDIKAN FORMAL & AKADEMIK (EDUCATION_DATA)
+ * -----------------------------------------------------------------------------------
+ * Atur riwayat perkuliahan, universitas, IPK, dan mata kuliah inti di sini.
+ * =================================================================================== */
 export const EDUCATION_DATA: EducationItem[] = [
   {
     id: 'univ-cs',
@@ -318,6 +385,11 @@ export const EDUCATION_DATA: EducationItem[] = [
   },
 ];
 
+/* ===================================================================================
+ * [BAGIAN 7] PENGALAMAN KERJA & KARIER (EXPERIENCE_DATA)
+ * -----------------------------------------------------------------------------------
+ * Atur linimasa karier, nama perusahaan, deskripsi pekerjaan, dan capaian terukur.
+ * =================================================================================== */
 export const EXPERIENCE_DATA: ExperienceItem[] = [
   {
     id: 'exp-1',
@@ -351,6 +423,11 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
   },
 ];
 
+/* ===================================================================================
+ * [BAGIAN 8] KEAHLIAN TEKNIS & SKILL MATRIX (SKILL_CATEGORIES)
+ * -----------------------------------------------------------------------------------
+ * Atur nama teknologi, persentase keahlian (level 0 - 100), dan deskripsi pendukung.
+ * =================================================================================== */
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     title: 'Frontend Engineering',

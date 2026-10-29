@@ -1,6 +1,21 @@
 /**
- * @license
- * SPDX-License-Identifier: Apache-2.0
+ * ===================================================================================
+ * APLIKASI PORTOFOLIO UTAMA (App.tsx)
+ * Hugo Antonio Hien Wijaya - Software Engineer & Full-Stack Developer
+ * ===================================================================================
+ * Komponen ini menggabungkan seluruh komponen halaman:
+ * - <Navbar />          : Menu navigasi atas & tombol mode gelap/terang.
+ * - <HeroSection />     : Foto profil utama, perkenalan, metrik statistik, tombol sosial.
+ * - <TabNavigation />   : Pengalih tab interaktif (Proyek, Sertifikasi, Pendidikan, dll).
+ * - <ProjectsTab />     : Galeri kartu proyek, pencarian, dan modal detail proyek.
+ * - <CertificationsTab/>: Daftar sertifikasi resmi, ID kredensial, dan verifikasi.
+ * - <EducationTab />    : Riwayat pendidikan universitas, IPK, dan prestasi akademik.
+ * - <ExperienceTab />   : Linimasa perjalanan karier dan kontribusi nyata.
+ * - <SkillsTab />       : Matriks keahlian teknologi dengan bilah persentase.
+ * - <ContactSection />  : Formulir pesan responsif, salin email, & WhatsApp.
+ * - <Footer />          : Hak cipta dan navigasi cepat bawah.
+ * - <ResumeModal />     : Pratinjau CV yang siap cetak atau ekspor ke PDF.
+ * ===================================================================================
  */
 
 import React, { useState } from 'react';
@@ -26,7 +41,10 @@ import {
 } from './data/portfolioData';
 
 function PortfolioApp() {
+  // State untuk melacak tab aktif ('proyek' | 'sertifikasi' | 'pendidikan' | 'pengalaman' | 'keahlian')
   const [activeTab, setActiveTab] = useState<string>('proyek');
+
+  // State untuk modal CV / Resume
   const [resumeOpen, setResumeOpen] = useState<boolean>(false);
 
   const handleTabChange = (tabId: string) => {
@@ -44,6 +62,7 @@ function PortfolioApp() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Menghitung jumlah item pada masing-masing tab untuk badge counter
   const counts = {
     proyek: PROJECTS_DATA.length,
     sertifikasi: CERTIFICATIONS_DATA.length,
@@ -54,7 +73,9 @@ function PortfolioApp() {
 
   return (
     <div className="min-h-screen flex flex-col bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-neutral-900 selection:text-white dark:selection:bg-neutral-100 dark:selection:text-neutral-900 font-sans transition-colors duration-200">
-      {/* Top Navbar */}
+      {/* =========================================================================
+       * [BAGIAN 1: NAVBAR & MODE GELAP]
+       * ========================================================================= */}
       <Navbar
         activeTab={activeTab}
         onTabChange={handleTabChange}
@@ -63,23 +84,30 @@ function PortfolioApp() {
 
       {/* Main Content Area */}
       <main className="flex-1">
-        {/* Split Screen Hero Section */}
+        {/* =======================================================================
+         * [BAGIAN 2: HERO SECTION & FOTO PROFIL]
+         * ======================================================================= */}
         <HeroSection
           onExploreProjects={handleExploreProjects}
           onContactClick={handleContactClick}
           onOpenResume={() => setResumeOpen(true)}
         />
 
-        {/* Tab Navigation Segmented Bar */}
+        {/* =======================================================================
+         * [BAGIAN 3: BILAH NAVIGASI TAB]
+         * ======================================================================= */}
         <TabNavigation
           activeTab={activeTab}
           onTabChange={handleTabChange}
           counts={counts}
         />
 
-        {/* Dynamic Tab Content Section with Framer Motion AnimatePresence */}
+        {/* =======================================================================
+         * [BAGIAN 4: KONTEN TAB INTERAKTIF DENGAN ANIMASI]
+         * ======================================================================= */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 min-h-[500px]">
           <AnimatePresence mode="wait">
+            {/* Tab: Proyek */}
             {activeTab === 'proyek' && (
               <motion.div
                 key="tab-proyek"
@@ -92,6 +120,7 @@ function PortfolioApp() {
               </motion.div>
             )}
 
+            {/* Tab: Sertifikasi */}
             {activeTab === 'sertifikasi' && (
               <motion.div
                 key="tab-sertifikasi"
@@ -104,6 +133,7 @@ function PortfolioApp() {
               </motion.div>
             )}
 
+            {/* Tab: Pendidikan */}
             {activeTab === 'pendidikan' && (
               <motion.div
                 key="tab-pendidikan"
@@ -116,6 +146,7 @@ function PortfolioApp() {
               </motion.div>
             )}
 
+            {/* Tab: Pengalaman Kerja */}
             {activeTab === 'pengalaman' && (
               <motion.div
                 key="tab-pengalaman"
@@ -128,6 +159,7 @@ function PortfolioApp() {
               </motion.div>
             )}
 
+            {/* Tab: Keahlian Teknis */}
             {activeTab === 'keahlian' && (
               <motion.div
                 key="tab-keahlian"
@@ -142,14 +174,20 @@ function PortfolioApp() {
           </AnimatePresence>
         </section>
 
-        {/* Responsive Contact Form Section */}
+        {/* =======================================================================
+         * [BAGIAN 5: FORMULIR KONTAK RESPANSIF & INTEGRASI WHATSAPP / EMAIL]
+         * ======================================================================= */}
         <ContactSection />
       </main>
 
-      {/* Global Footer */}
+      {/* =========================================================================
+       * [BAGIAN 6: FOOTER]
+       * ========================================================================= */}
       <Footer onNavClick={handleTabChange} />
 
-      {/* Printable Resume / CV Summary Modal */}
+      {/* =========================================================================
+       * [BAGIAN 7: MODAL PRATINJAU CV / RESUME (CETAK / SIMPAN PDF)]
+       * ========================================================================= */}
       <ResumeModal
         isOpen={resumeOpen}
         onClose={() => setResumeOpen(false)}

@@ -1,15 +1,34 @@
+/**
+ * ===================================================================================
+ * PENGATURAN GAYA & TIPOGRAFI UTAMA (Tailwind CSS v4)
+ * ===================================================================================
+ */
+
 @import "tailwindcss";
 
 @layer base {
+  /* ===============================================================================
+   * [BAGIAN FONT TEKS UTAMA]
+   * Mengatur seluruh font standar halaman menjadi 'Plus Jakarta Sans'.
+   * Jika ingin mengganti dengan font lain, ganti nama font di bawah ini
+   * (pastikan juga sudah mengimpor font tersebut di `index.html`).
+   * =============================================================================== */
   html {
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   }
 
+  /* ===============================================================================
+   * [BAGIAN FONT MONOSPACE / DATA / ANGKA]
+   * Mengatur font elemen kode, tag `pre`, dan kelas `.font-mono` menjadi 'JetBrains Mono'.
+   * =============================================================================== */
   code, pre, .font-mono {
     font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   }
 
-  /* Custom subtle scrollbar */
+  /* ===============================================================================
+   * [BAGIAN GAYA SCROLLBAR MINIMALIS]
+   * Pengaturan scrollbar halus agar serasi dengan tema modern & mode gelap.
+   * =============================================================================== */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
