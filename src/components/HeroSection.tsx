@@ -27,7 +27,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             className="lg:col-span-7 flex flex-col justify-center space-y-6"
           >
             {/* Editorial Kicker */}
-            <div className="flex items-center gap-2 text-xs font-semibold tracking-wider uppercase text-neutral-500 dark:text-neutral-400">
+            <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-neutral-500 dark:text-neutral-400">
               <span>Ini website pribadi saya, <br>anggap saja rumah sendiri.</br></span>
             </div>
 
