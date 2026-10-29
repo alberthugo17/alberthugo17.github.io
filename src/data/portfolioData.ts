@@ -102,38 +102,38 @@ export const PROFILE_DATA = {
   shortName: 'Hugo Antonio',
 
   // Profesi / Jabatan Utama
-  role: 'Software Engineer & Full-Stack Developer',
+  role: 'Undergraduate Student of Computer Science at Bina Nusantara University',
 
   // Slogan / Tagline Singkat
-  tagline: 'Membangun aplikasi web mutakhir dengan arsitektur tangguh, performa tinggi, dan pengalaman pengguna yang elegan.',
+  tagline: 'If jatuh then bangkit',
 
   // Lokasi & Ketersediaan Kerja
-  location: 'Jakarta, Indonesia · Tersedia untuk Kolaborasi Global & Remote',
+  location: 'Malang, Indonesia · Tersedia untuk Kolaborasi',
 
   // Informasi Kontak Langsung
   email: 'djojowyn@gmail.com',
-  phone: '+62 812-8899-2310',
+  phone: '+62 857 5467 6175',
 
   // Tautan Langsung Chat WhatsApp (Pesan Otomatis)
-  whatsappUrl: 'https://wa.me/6281288992310?text=Halo%20Hugo%20Antonio,%20saya%20melihat%20portofolio%20Anda%20dan%20tertarik%20untuk%20berdiskusi.',
+  whatsappUrl: 'https://wa.me/6285754676175?text=Halo%20Hugo%20Antonio,%20saya%20melihat%20portofolio%20Anda%20dan%20tertarik%20untuk%20berdiskusi.',
 
   // Akun Jejaring Sosial & Media
   socials: {
-    linkedin: 'https://www.linkedin.com/in/hugoantonio/',
-    github: 'https://github.com/hugoantonio',
+    linkedin: 'https://www.linkedin.com/in/hugo-antonio-hien-wijaya-a28583372/',
+    github: 'https://github.com/alberthugo17',
     email: 'mailto:djojowyn@gmail.com',
   },
 
   // Statistik Utama di Bagian Hero
   stats: [
-    { label: 'Tahun Pengalaman', value: '4+' },
-    { label: 'Proyek Selesai', value: '25+' },
+    { label: 'Tahun Pengalaman', value: '2+' },
+    { label: 'Proyek Selesai', value: '2+' },
     { label: 'Sertifikasi Global', value: '5' },
     { label: 'Uptime & Kualitas', value: '99.9%' },
   ],
 
   // Biografi Singkat & Latar Belakang
-  bio: `Saya seorang Software Engineer dan Full-Stack Developer yang berfokus pada arsitektur web modern, sistem terdistribusi, dan user interface yang presisi. Berpengalaman dalam merancang aplikasi skala enterprise menggunakan ekosistem TypeScript, React, Node.js, Go, serta orkestrasi cloud modern di AWS dan Google Cloud. Menekankan performa kode yang optimal, desain yang intuitif, dan rekayasa perangkat lunak berstandar industri.`,
+  bio: `Saya berfokus pada Artificial Intelligence, Computer Vision, dan Robotika. Saya senang mengubah gagasan teknologi menjadi solusi praktis yang dapat diterapkan di dunia nyata. Saya selalu antusias untuk terus belajar, memecahkan masalah yang kompleks, serta membangun teknologi hebat bersama tim yang inovatif.`,
 
   // Foto Profil (mengacu pada import di BAGIAN 1)
   avatar: hugoAvatar,
@@ -148,21 +148,21 @@ export const PROFILE_DATA = {
 export const PROJECTS_DATA: ProjectItem[] = [
   {
     id: 'fineo-enterprise',
-    title: 'Fineo Core – Real-time Fintech Dashboard',
-    tagline: 'Platform analitik portofolio keuangan dan rekonsiliasi transaksi otomatis.',
-    category: 'Full-Stack',
-    year: '2024',
-    description: 'Sistem dashboard finansial komprehensif yang memproses jutaan transaksi mutasi rekening, menyajikan visualisasi analitik real-time, dan mengotomatiskan rekonsiliasi pembayaran antar bank.',
+    title: '5-DOF robotic arm with computer vision',
+    tagline: 'Project dalam rangka penelitian integrasi kontrol gestur tangan pada lengan.',
+    category: 'Open Source',
+    year: '2025',
+    description: 'Lengan robot 5 derajat DOF yang dikendalikan melalui pelacakan gestur tangan berbasis computer science secara real time. Sistem ini mengintegrasikan Python (OpenCV & MediaPipe) dengan Arduino Uno, menggunakaninverse kinematics dan komunikasi serial untuk pengendalian servo yang presisi.',
     image: projectFintech, // Foto/Screenshot Proyek
-    technologies: ['React 19', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL', 'Redis', 'WebSockets'],
-    metrics: 'Memproses $1.2M+ volume transaksi harian dengan latensi respons <80ms',
+    technologies: ['Python', 'C++', 'Mediapipe', 'Open-CV', 'Arduino', 'Robotics', 'Hardware'],
+    metrics: 'Berhasil mengintegrasikan kontrol gestur tangan pada perangkat keras lengan robot',
     highlights: [
-      'Arsitektur microservices berorientasi event menggunakan Redis Streams dan message queuing.',
-      'Sistem visualisasi data performa tinggi berbasis SVG dan Canvas dengan zero-lag interaction.',
-      'Enkripsi multi-layer sesuai standar keamanan perbankan OWASP dan enkripsi transit TLS 1.3.',
-      'Dashboard responsif sempurna pada layar mobile hingga monitor ultrawide.'
+      'Pengendalian robot dengan bebas namun tetap stabil dan akurat.',
+      'Sistem kontrol gestur tangan tanpa sentuhan fisik.',
+      'Pengendalian merangkat keras dengan responsif, akurat, dan minim delay.',
+      'Integrasi sistem kontrol dengan perangkat keras secara real-time.'
     ],
-    liveUrl: 'https://demo-fineo.example.com', // Tautan Live Demo
+    liveUrl: 'https://drive.google.com/file/d/10Vf0pqVYaNtOGiDEo6p5sE7-wMWHkfCt/view', // Tautan Live Demo
     githubUrl: 'https://github.com/hugoantonio/fineo-fintech-core', // Tautan Repositori GitHub
     featured: true, // true jika ingin ditampilkan lebih besar di Bento Grid
   },
