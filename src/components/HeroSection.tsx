@@ -29,7 +29,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
             {/* Editorial Kicker */}
             <div className="flex items-center gap-2 text-xs font-semibold tracking-wider text-neutral-500 dark:text-neutral-400">
               <span>
-                Ini website pribadi saya, <br>anggap saja rumah sendiri.</br> 
+                Ini website pribadi saya, <br />
+                anggap saja rumah sendiri
               </span>
             </div>
 
