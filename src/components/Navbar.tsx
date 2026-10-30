@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight } from 'lucide-react';
+import { Menu, X, ArrowUpRight, FileText } from 'lucide-react';
 
 interface NavbarProps {
   activeTab: string;
@@ -31,6 +31,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onOpenRe
 
   const handleNavClick = (id: string) => {
     setMobileMenuOpen(false);
+    onTabChange(id);
     if (id === 'tentang') {
       const el = document.getElementById('about-section');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -38,7 +39,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onOpenRe
       const el = document.getElementById('contact-section');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
-      onTabChange(id);
       const el = document.getElementById('tabs-section');
       if (el) el.scrollIntoView({ behavior: 'smooth' });
     }
@@ -84,9 +84,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onOpenRe
             {/* Quick Resume preview */}
             <button
               onClick={onOpenResume}
-              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-neutral-900 bg-white/75 hover:bg-white rounded-lg shadow-2xs transition-all whitespace-nowrap shrink-0"
+              className="group hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-medium text-neutral-700 hover:text-neutral-900 bg-neutral-100/80 hover:bg-neutral-200/80 border border-neutral-200/80 rounded-lg transition-all whitespace-nowrap shrink-0 shadow-2xs"
             >
-              Ringkasan CV
+              <FileText className="w-3.5 h-3.5 text-neutral-500 group-hover:text-neutral-900 transition-colors" />
+              <span>Ringkasan CV</span>
             </button>
 
             {/* Primary Action CTA */}
@@ -157,9 +158,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onOpenRe
                   setMobileMenuOpen(false);
                   onOpenResume();
                 }}
-                className="w-full py-2.5 text-xs font-semibold text-neutral-700 border border-neutral-300 rounded-lg hover:bg-neutral-100 text-center transition-colors"
+                className="w-full flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-neutral-700 bg-neutral-100 hover:bg-neutral-200/80 border border-neutral-200 rounded-lg text-center transition-colors"
               >
-                Ringkasan CV
+                <FileText className="w-3.5 h-3.5 text-neutral-500" />
+                <span>Ringkasan CV</span>
               </button>
               <button
                 onClick={() => handleNavClick('kontak')}

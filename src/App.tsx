@@ -18,7 +18,7 @@
  * ===================================================================================
  */
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
@@ -41,26 +41,104 @@ import {
 } from './data/portfolioData';
 
 function PortfolioApp() {
-  // State untuk melacak tab aktif ('proyek' | 'sertifikasi' | 'pendidikan' | 'pengalaman' | 'keahlian')
+  // State untuk melacak tab konten aktif ('proyek' | 'sertifikasi' | 'pendidikan' | 'pengalaman' | 'keahlian')
   const [activeTab, setActiveTab] = useState<string>('proyek');
+
+  // State untuk indikator navigasi aktif pada Navbar atas ('tentang' | 'proyek' | 'sertifikasi' | 'pendidikan' | 'pengalaman' | 'keahlian' | 'kontak')
+  const [activeNavTab, setActiveNavTab] = useState<string>('tentang');
 
   // State untuk modal CV / Resume
   const [resumeOpen, setResumeOpen] = useState<boolean>(false);
 
+  // Kunci anti-flicker: mencegah scrollspy mendeteksi bagian tengah saat smooth scroll sedang berlangsung
+  const isManualNavRef = useRef<boolean>(false);
+  const manualNavTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const lockScrollSpy = () => {
+    isManualNavRef.current = true;
+    if (manualNavTimeoutRef.current) {
+      clearTimeout(manualNavTimeoutRef.current);
+    }
+    // Kunci scroll listener selama 850ms agar animasi pergeseran halaman tidak memicu pergantian tab sementara
+    manualNavTimeoutRef.current = setTimeout(() => {
+      isManualNavRef.current = false;
+    }, 850);
+  };
+
+  // Menangani klik navigasi dari Navbar atau Footer
+  const handleNavChange = (tabId: string) => {
+    lockScrollSpy();
+    setActiveNavTab(tabId);
+    if (tabId !== 'tentang' && tabId !== 'kontak') {
+      setActiveTab(tabId);
+    }
+  };
+
+  // Menangani klik tab di TabNavigation
   const handleTabChange = (tabId: string) => {
     setActiveTab(tabId);
+    setActiveNavTab(tabId);
   };
 
   const handleExploreProjects = () => {
+    lockScrollSpy();
     setActiveTab('proyek');
+    setActiveNavTab('proyek');
     const el = document.getElementById('tabs-section');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleContactClick = () => {
+    lockScrollSpy();
+    setActiveNavTab('kontak');
     const el = document.getElementById('contact-section');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
+
+  // Fitur Scrollspy: Mengikuti bagian apa yang sedang dilihat pengguna di layar
+  useEffect(() => {
+    const handleScroll = () => {
+      // Abaikan jika baru saja mengklik tombol menu (sedang smooth scroll)
+      if (isManualNavRef.current) return;
+
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const fullHeight = document.documentElement.scrollHeight;
+
+      const tabsEl = document.getElementById('tabs-section');
+      const contactEl = document.getElementById('contact-section');
+
+      // 1. Jika pengguna telah menggulir ke bagian kontak atau mendekati akhir halaman
+      if (contactEl) {
+        const contactRect = contactEl.getBoundingClientRect();
+        const isAtBottom = scrollY + windowHeight >= fullHeight - 60;
+        if (contactRect.top <= 260 || isAtBottom) {
+          setActiveNavTab('kontak');
+          return;
+        }
+      }
+
+      // 2. Jika pengguna berada di area tabs-section (Proyek, Sertifikasi, Pendidikan, dll)
+      if (tabsEl) {
+        const tabsRect = tabsEl.getBoundingClientRect();
+        if (tabsRect.top <= 200) {
+          setActiveNavTab(activeTab);
+          return;
+        }
+      }
+
+      // 3. Jika pengguna berada di bagian atas (Hero / Tentang)
+      setActiveNavTab('tentang');
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (manualNavTimeoutRef.current) clearTimeout(manualNavTimeoutRef.current);
+    };
+  }, [activeTab]);
 
   // Menghitung jumlah item pada masing-masing tab untuk badge counter
   const counts = {
@@ -77,8 +155,8 @@ function PortfolioApp() {
        * [BAGIAN 1: NAVBAR & MODE GELAP]
        * ========================================================================= */}
       <Navbar
-        activeTab={activeTab}
-        onTabChange={handleTabChange}
+        activeTab={activeNavTab}
+        onTabChange={handleNavChange}
         onOpenResume={() => setResumeOpen(true)}
       />
 
@@ -183,7 +261,7 @@ function PortfolioApp() {
       {/* =========================================================================
        * [BAGIAN 6: FOOTER]
        * ========================================================================= */}
-      <Footer onNavClick={handleTabChange} />
+      <Footer onNavClick={handleNavChange} />
 
       {/* =========================================================================
        * [BAGIAN 7: MODAL PRATINJAU CV / RESUME (CETAK / SIMPAN PDF)]
