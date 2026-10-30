@@ -1,6 +1,6 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { FolderGit2, Award, GraduationCap, Briefcase, Cpu } from 'lucide-react';
+import React, { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { FolderGit2, Award, GraduationCap, Briefcase, Cpu, Pointer } from 'lucide-react';
 
 interface TabNavigationProps {
   activeTab: string;
@@ -19,6 +19,30 @@ export const TabNavigation: React.FC<TabNavigationProps> = ({
   onTabChange,
   counts,
 }) => {
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [hasOverflow, setHasOverflow] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  // Periksa apakah ada tab yang berada di luar jangkauan layar (overflow horizontal)
+  useEffect(() => {
+    const checkOverflow = () => {
+      const el = scrollContainerRef.current;
+      if (el) {
+        setHasOverflow(el.scrollWidth > el.clientWidth + 4);
+      }
+    };
+
+    checkOverflow();
+    window.addEventListener('resize', checkOverflow);
+    return () => window.removeEventListener('resize', checkOverflow);
+  }, []);
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current && scrollContainerRef.current.scrollLeft > 5) {
+      setHasScrolled(true);
+    }
+  };
+
   const tabs = [
     { id: 'proyek', label: 'Proyek', icon: FolderGit2, count: counts.proyek },
     { id: 'sertifikasi', label: 'Sertifikasi', icon: Award, count: counts.sertifikasi },
@@ -30,9 +54,40 @@ export const TabNavigation: React.FC<TabNavigationProps> = ({
   return (
     <div id="tabs-section" className="scroll-mt-20">
       <div className="border-b border-neutral-200 dark:border-neutral-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Layer Animasi Kursor Tangan Menunjuk untuk Menggeser Tab (Hanya muncul jika ada tab yang terpotong/overflow dan belum digeser) */}
+          <AnimatePresence>
+            {!hasScrolled && hasOverflow && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{
+                  x: [40, -40],
+                  opacity: [0, 1, 1, 0],
+                }}
+                exit={{ opacity: 0, scale: 0.8, transition: { duration: 0.3 } }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  repeatDelay: 1.5,
+                  ease: 'easeInOut',
+                  times: [0, 0.2, 0.8, 1],
+                }}
+                className="pointer-events-none absolute right-4 sm:right-12 top-1/2 -translate-y-1/2 z-30 flex items-center"
+                aria-hidden="true"
+              >
+                <div className="flex items-center justify-center p-2 rounded-full bg-neutral-900/10 dark:bg-neutral-100/10 backdrop-blur-xs shadow-xs">
+                  <Pointer className="w-6 h-6 text-neutral-900 dark:text-neutral-100 fill-neutral-900/15 dark:fill-neutral-100/15 drop-shadow-md -rotate-12" />
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
           {/* Segmented controls / Tabs list with horizontal scroll on mobile */}
-          <div className="flex space-x-2 sm:space-x-3 overflow-x-auto no-scrollbar py-2">
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScroll}
+            className="flex space-x-2 sm:space-x-3 overflow-x-auto no-scrollbar py-2"
+          >
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const isActive = activeTab === tab.id;
