@@ -353,7 +353,7 @@ export const EDUCATION_DATA: EducationItem[] = [
     degree: 'Bangkit Academy Graduate – Cloud Computing Track',
     institution: 'Google, GoTo, Tokopedia, Traveloka (Kemendikbudristek)',
     period: 'Februari 2023 – Juli 2023',
-    location: 'Jakarta, Indonesia',
+    location: 'Malang, Indonesia',
     grade: 'Predikat: Top Distinction Graduate (Top 5%)',
     honors: 'Top 10 Best Capstone Project Se-Indonesia',
     description: 'Program akselerasi talenta digital teknologi intensif binaan Google yang mencakup Cloud Architecture, deployment skala besar, CI/CD, dan kolaborasi lintas disiplin ilmu.',
@@ -396,7 +396,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     role: 'Full-Stack Software Engineer',
     company: 'Tech Scale-Up & Digital Solutions',
     period: '2024 – Sekarang',
-    location: 'Jakarta (Hybrid)',
+    location: 'Malang (Hybrid)',
     type: 'Purna Waktu (Full-time)',
     description: 'Bertanggung jawab memimpin arsitektur sistem frontend dan backend pada layanan aplikasi berorientasi pelanggan dengan trafik tinggi.',
     keyContributions: [
@@ -411,7 +411,7 @@ export const EXPERIENCE_DATA: ExperienceItem[] = [
     role: 'Software Engineer Associate / Intern',
     company: 'Fintech Innovation Lab',
     period: '2023 – 2024',
-    location: 'Jakarta',
+    location: 'Malang',
     type: 'Magang & Kontrak',
     description: 'Mengembangkan fitur modul perbankan terbuka (open banking), integrasi payment gateway QRIS, dan sistem rekonsiliasi data.',
     keyContributions: [

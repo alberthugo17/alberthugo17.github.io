@@ -1,7 +1,70 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React, { useRef, useState, useEffect } from 'react';
+import { motion, useInView } from 'motion/react';
 import { ArrowDown, Linkedin, Github, Mail, MessageSquare, Download } from 'lucide-react';
 import { PROFILE_DATA } from '../data/portfolioData';
+
+interface AnimatedCounterProps {
+  value: string;
+}
+
+const AnimatedCounter: React.FC<AnimatedCounterProps> = ({ value }) => {
+  const ref = useRef<HTMLSpanElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '0px 0px -40px 0px' });
+  const [displayValue, setDisplayValue] = useState<string>('');
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    const match = value.match(/^([\d.]+)(.*)$/);
+    if (!match) {
+      setDisplayValue(value);
+      return;
+    }
+
+    const target = parseFloat(match[1]);
+    const suffix = match[2] || '';
+    const hasDecimals = match[1].includes('.');
+    const decimals = hasDecimals ? match[1].split('.')[1].length : 0;
+
+    const duration = 1800; // 1.8 detik durasi animasi
+    let startTime: number | null = null;
+    let animationFrameId: number;
+
+    // Fungsi kurva ease-out cubic (bergerak cepat di awal lalu melambat halus saat mencapai angka akhir)
+    const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+
+    const step = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const easedProgress = easeOutCubic(progress);
+      const current = easedProgress * target;
+
+      const formattedNumber = decimals > 0 ? current.toFixed(decimals) : Math.round(current).toString();
+      setDisplayValue(`${formattedNumber}${suffix}`);
+
+      if (progress < 1) {
+        animationFrameId = requestAnimationFrame(step);
+      } else {
+        const finalNumber = decimals > 0 ? target.toFixed(decimals) : target.toString();
+        setDisplayValue(`${finalNumber}${suffix}`);
+      }
+    };
+
+    animationFrameId = requestAnimationFrame(step);
+
+    return () => {
+      if (animationFrameId) cancelAnimationFrame(animationFrameId);
+    };
+  }, [isInView, value]);
+
+  const match = value.match(/^([\d.]+)(.*)$/);
+  const initialDisplay = match
+    ? `${match[1].includes('.') ? (0).toFixed(match[1].split('.')[1].length) : '0'}${match[2] || ''}`
+    : value;
+
+  return <span ref={ref}>{isInView && displayValue ? displayValue : initialDisplay}</span>;
+};
 
 interface HeroSectionProps {
   onExploreProjects: () => void;
@@ -159,7 +222,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Floating Minimal Info Card */}
-              <div className="absolute -bottom-4 -left-3 sm:-left-6 p-4 rounded-xl bg-neutral-50/95 dark:bg-neutral-900/95 backdrop-blur-md border border-neutral-200 dark:border-neutral-800 shadow-lg max-w-[260px]">
+              <div className="absolute -bottom-4 -left-3 sm:-left-6 p-4 rounded-xl bg-neutral-50/50 dark:bg-neutral-900/50 backdrop-blur-xl border border-neutral-200/40 dark:border-neutral-800/40 shadow-lg max-w-[260px]">
                 <div className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
                   Status Terkini
                 </div>
@@ -167,24 +230,25 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   Tersedia untuk Rekayasa Proyek & Kolaborasi
                 </div>
                 <div className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
-                  Jakarta · Waktu Indonesia Barat (UTC+7)
+                  Malang · Waktu Indonesia Barat (UTC+7)
                 </div>
               </div>
             </div>
           </motion.div>
         </div>
 
-        {/* Full-Width Metrics Strip Below Split (Rule from 7_portfolio_photography.md) */}
+        {/* Full-Width Metrics Strip Below Split */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.25 }}
-          className="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800 grid grid-cols-2 md:grid-cols-4 gap-6 text-left"
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="mt-16 pt-8 border-t border-neutral-200 dark:border-neutral-800 grid grid-cols-2 md:grid-cols-4 gap-6 text-center"
         >
           {PROFILE_DATA.stats.map((stat, idx) => (
-            <div key={idx} className="space-y-1">
+            <div key={idx} className="space-y-1 text-center">
               <div className="text-2xl sm:text-3xl font-extrabold text-neutral-900 dark:text-neutral-100 tabular-nums font-mono">
-                {stat.value}
+                <AnimatedCounter value={stat.value} />
               </div>
               <div className="text-xs sm:text-sm font-medium text-neutral-500 dark:text-neutral-400">
                 {stat.label}

@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
               {PROFILE_DATA.name}
             </div>
             <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
-              Software Engineer & Full-Stack Developer · Jakarta, Indonesia
+              Software Engineer & Full-Stack Developer · Malang, Indonesia
             </p>
           </div>
 

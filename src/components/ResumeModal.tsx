@@ -72,7 +72,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
             <div className="flex flex-wrap items-center gap-4 mt-3 text-xs text-neutral-600 dark:text-neutral-400">
               <span className="flex items-center gap-1">
                 <MapPin className="w-3.5 h-3.5" />
-                Jakarta, Indonesia
+                Malang, Indonesia
               </span>
               <span aria-hidden="true">·</span>
               <span className="flex items-center gap-1 font-mono">
