@@ -47,9 +47,9 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onOpenRe
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-200 border-b ${
+        className={`sticky top-0 z-40 w-full transition-all duration-300 border-b ${
           isScrolled
-            ? 'bg-neutral-50/90 backdrop-blur-md border-neutral-200/80 shadow-xs'
+            ? 'bg-neutral-50/50 backdrop-blur-xl border-neutral-200/40 shadow-xs'
             : 'bg-neutral-50 border-neutral-200/40'
         }`}
       >
@@ -84,7 +84,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onOpenRe
             {/* Quick Resume preview */}
             <button
               onClick={onOpenResume}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-semibold text-neutral-700 border border-neutral-300 rounded-lg hover:bg-neutral-100 transition-colors whitespace-nowrap shrink-0"
+              className="hidden sm:inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold text-neutral-900 bg-white/75 hover:bg-white rounded-lg shadow-2xs transition-all whitespace-nowrap shrink-0"
             >
               Ringkasan CV
             </button>
