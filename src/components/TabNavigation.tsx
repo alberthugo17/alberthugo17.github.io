@@ -82,11 +82,11 @@ export const TabNavigation: React.FC<TabNavigationProps> = ({
             )}
           </AnimatePresence>
 
-          {/* Segmented controls / Tabs list with horizontal scroll on mobile */}
+          {/* Segmented controls / Tabs list with horizontal scroll on mobile (scrollbar disembunyikan) */}
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex space-x-2 sm:space-x-3 overflow-x-auto no-scrollbar py-2"
+            className="flex space-x-2 sm:space-x-3 overflow-x-auto py-2 no-scrollbar [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
           >
             {tabs.map((tab) => {
               const Icon = tab.icon;
