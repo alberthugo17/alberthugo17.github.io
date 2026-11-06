@@ -51,11 +51,12 @@ export interface CertificationItem {
   title: string;
   issuer: string;
   issuerLogoText: string;
+  useNvidiaLogo?: boolean;
   issueDate: string;
   expiryDate: string;
   credentialId: string;
   verificationUrl: string;
-  category: 'Cloud' | 'Frontend' | 'DevOps & Architecture';
+  category: string;
   skills: string[];
   description: string;
 }
@@ -253,69 +254,18 @@ export const PROJECTS_DATA: ProjectItem[] = [
  * =================================================================================== */
 export const CERTIFICATIONS_DATA: CertificationItem[] = [
   {
-    id: 'aws-saa',
-    title: 'AWS Certified Solutions Architect – Associate',
-    issuer: 'Amazon Web Services (AWS)',
-    issuerLogoText: 'AWS',
-    issueDate: 'Februari 2024',
-    expiryDate: 'Februari 2027',
-    credentialId: 'AWS-SAA-83921849',
-    verificationUrl: 'https://aws.amazon.com/verification',
-    category: 'Cloud',
-    skills: ['Cloud Architecture', 'AWS VPC & Networking', 'Serverless (Lambda)', 'ECS & Containers', 'High Availability'],
-    description: 'Memvalidasi kemampuan komprehensif dalam merancang arsitektur cloud AWS yang aman, andal, berkinerja tinggi, dan efisien dari segi biaya.',
-  },
-  {
-    id: 'gcp-pca',
-    title: 'Google Cloud Certified: Professional Cloud Architect',
-    issuer: 'Google Cloud',
-    issuerLogoText: 'GCP',
-    issueDate: 'Oktober 2023',
-    expiryDate: 'Oktober 2026',
-    credentialId: 'GCP-PCA-5729104',
-    verificationUrl: 'https://google.accredible.com',
-    category: 'Cloud',
-    skills: ['Google Kubernetes Engine (GKE)', 'Cloud Run', 'IAM Security', 'BigQuery Analytics', 'Infrastructure as Code'],
-    description: 'Sertifikasi profesional tingkat lanjut untuk merancang dan mengelola solusi bisnis berskala enterprise pada ekosistem Google Cloud Platform.',
-  },
-  {
-    id: 'meta-fe',
-    title: 'Meta Front-End Developer Professional Certificate',
-    issuer: 'Meta',
-    issuerLogoText: 'META',
-    issueDate: 'Juni 2023',
+    id: 'nvidia-fundamentals-deep-learning',
+    title: 'Fundamentals of Deep Learning',
+    issuer: 'NVIDIA',
+    issuerLogoText: 'NVIDIA',
+    useNvidiaLogo: true,
+    issueDate: '2024',
     expiryDate: 'Seumur Hidup',
-    credentialId: 'META-FE-912048',
-    verificationUrl: 'https://coursera.org/verify/professional-cert/META-FE-912048',
-    category: 'Frontend',
-    skills: ['Advanced React Patterns', 'State Architecture', 'Web Performance', 'Responsive Design', 'Jest & Unit Testing'],
-    description: 'Program kurikulum mendalam dari Meta yang mencakup pengembangan frontend mutakhir, arsitektur komponen React, dan pengujian aplikasi web modern.',
-  },
-  {
-    id: 'hashicorp-terraform',
-    title: 'HashiCorp Certified: Terraform Associate',
-    issuer: 'HashiCorp',
-    issuerLogoText: 'TERRAFORM',
-    issueDate: 'Desember 2023',
-    expiryDate: 'Desember 2025',
-    credentialId: 'HC-TA-382910',
-    verificationUrl: 'https://hashicorp.credly.com',
-    category: 'DevOps & Architecture',
-    skills: ['Infrastructure as Code (IaC)', 'Terraform Modules', 'Multi-Cloud Provisioning', 'State Management'],
-    description: 'Memvalidasi keahlian operasional penyediaan infrastruktur multi-cloud secara deklaratif dan otomatisasi pipeline CI/CD.',
-  },
-  {
-    id: 'cka-kubernetes',
-    title: 'Certified Kubernetes Administrator (CKA)',
-    issuer: 'Cloud Native Computing Foundation (CNCF)',
-    issuerLogoText: 'CKA',
-    issueDate: 'Mei 2024',
-    expiryDate: 'Mei 2027',
-    credentialId: 'CKA-2849103',
-    verificationUrl: 'https://cncf.io/certification/cka',
-    category: 'DevOps & Architecture',
-    skills: ['Kubernetes Cluster Admin', 'Pod Scheduling', 'Ingress & Network Policies', 'Cluster Troubleshooting'],
-    description: 'Sertifikasi berbasis ujian praktik intensif mengelola konfigurasi, pemecahan masalah, dan keamanan klaster produksi Kubernetes.',
+    credentialId: '7rK4fCPJTyKB5HP7bjZNFQ',
+    verificationUrl: 'https://learn.nvidia.com/certificates?id=7rK4fCPJTyKB5HP7bjZNFQ#',
+    category: 'Artificial Intelligence',
+    skills: ['Deep Learning', 'Neural Networks', 'Computer Vision', 'PyTorch', 'GPU Acceleration', 'Model Optimization'],
+    description: 'Sertifikasi kompetensi resmi dari NVIDIA yang memvalidasi kemampuan praktis dalam merancang, melatih, dan mengoptimalkan arsitektur neural networks untuk computer vision serta akselerasi komputasi GPU.',
   },
 ];
 
