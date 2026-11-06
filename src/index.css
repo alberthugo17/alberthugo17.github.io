@@ -4,7 +4,13 @@
  * ===================================================================================
  */
 
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:ital,wght@0,300..800;1,300..800&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
 
 /* Mengaktifkan mode gelap berbasis kelas (.dark) pada Tailwind CSS v4 */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -13,11 +19,9 @@
   /* ===============================================================================
    * [BAGIAN FONT TEKS UTAMA]
    * Mengatur seluruh font standar halaman menjadi 'Plus Jakarta Sans'.
-   * Jika ingin mengganti dengan font lain, ganti nama font di bawah ini
-   * (pastikan juga sudah mengimpor font tersebut di `index.html`).
    * =============================================================================== */
-  html {
-    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  html, body {
+    font-family: var(--font-sans);
   }
 
   /* ===============================================================================
@@ -25,7 +29,7 @@
    * Mengatur font elemen kode, tag `pre`, dan kelas `.font-mono` menjadi 'JetBrains Mono'.
    * =============================================================================== */
   code, pre, .font-mono {
-    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    font-family: var(--font-mono);
   }
 
   /* ===============================================================================
