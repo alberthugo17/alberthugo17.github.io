@@ -161,8 +161,8 @@ export const CertificationsTab: React.FC = () => {
               exit={{ opacity: 0, scale: 0.96 }}
               className="relative w-full max-w-lg bg-white dark:bg-neutral-900 border border-neutral-200/90 dark:border-neutral-800 rounded-2xl shadow-2xl p-6 z-10 space-y-6"
             >
-              <div className="flex items-start justify-between">
-                <div className="flex items-center gap-3">
+              <div className="flex items-start justify-between gap-4">
+                <div className="flex flex-col gap-3">
                   {activeCert.useNvidiaLogo ? (
                     <div className="shrink-0 flex items-center text-neutral-900 dark:text-neutral-100 transition-colors">
                       <NvidiaLogo className="h-7 sm:h-8 w-auto shrink-0 text-neutral-900 dark:text-neutral-100 transition-colors" />
@@ -173,10 +173,10 @@ export const CertificationsTab: React.FC = () => {
                     </div>
                   )}
                   <div>
-                    <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-lg leading-tight">
+                    <h3 className="font-bold text-neutral-900 dark:text-neutral-100 text-lg sm:text-xl leading-tight">
                       {activeCert.title}
                     </h3>
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-0.5">
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
                       Penerbit Resmi: {activeCert.issuer}
                     </p>
                   </div>
@@ -184,7 +184,8 @@ export const CertificationsTab: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setActiveCert(null)}
-                  className="p-1 rounded-lg text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100"
+                  className="p-1 rounded-lg text-neutral-500 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors shrink-0"
+                  aria-label="Tutup"
                 >
                   <X className="w-5 h-5" />
                 </button>
