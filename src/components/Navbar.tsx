@@ -49,10 +49,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, onTabChange, onOpenRe
   return (
     <>
       <header
-        className={`sticky top-0 z-40 w-full transition-all duration-300 border-b ${
+        className={`sticky top-0 z-40 w-full transition-all duration-300 border-b backdrop-blur-md ${
           isScrolled
-            ? 'bg-neutral-100/80 dark:bg-neutral-950/80 backdrop-blur-xl border-neutral-200/80 dark:border-neutral-800/80 shadow-xs'
-            : 'bg-neutral-100/90 dark:bg-neutral-950/90 border-neutral-200/80 dark:border-neutral-800/80'
+            ? 'bg-neutral-100/50 dark:bg-neutral-950/50 border-neutral-200/60 dark:border-neutral-800/60 shadow-xs'
+            : 'bg-neutral-100/40 dark:bg-neutral-950/40 border-neutral-200/40 dark:border-neutral-800/40'
         }`}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between gap-8">
