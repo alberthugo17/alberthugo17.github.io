@@ -150,7 +150,7 @@ function PortfolioApp() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-neutral-900 selection:text-white dark:selection:bg-neutral-100 dark:selection:text-neutral-900 font-sans transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-neutral-100 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 selection:bg-neutral-900 selection:text-white dark:selection:bg-neutral-100 dark:selection:text-neutral-900 font-sans transition-colors duration-200">
       {/* =========================================================================
        * [BAGIAN 1: NAVBAR & MODE GELAP]
        * ========================================================================= */}

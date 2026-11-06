@@ -87,7 +87,7 @@ export const ContactSection: React.FC = () => {
           {/* Left Column: Direct Info & Social Fast Tracks */}
           <div className="lg:col-span-5 space-y-6">
             {/* Primary Email Card */}
-            <div className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 shadow-xs">
+            <div className="p-6 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs">
               <div className="flex items-center justify-between mb-4">
                 <div className="w-10 h-10 rounded-xl bg-neutral-200/70 dark:bg-neutral-800 flex items-center justify-center text-neutral-900 dark:text-neutral-100">
                   <Mail className="w-5 h-5" />
@@ -125,7 +125,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* WhatsApp Quick Chat */}
-            <div className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 shadow-xs">
+            <div className="p-6 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-400 flex items-center justify-center">
                   <MessageSquare className="w-5 h-5" />
@@ -154,7 +154,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* LinkedIn & Socials Card */}
-            <div className="p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 shadow-xs">
+            <div className="p-6 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs">
               <div className="text-xs font-semibold uppercase tracking-wider text-neutral-500 dark:text-neutral-400 mb-3">
                 Jejaring Profesional
               </div>
@@ -190,7 +190,7 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Column: Responsive Contact Form */}
           <div className="lg:col-span-7">
-            <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 shadow-xs">
+            <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900 shadow-xs">
               {isSubmitted ? (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.95 }}

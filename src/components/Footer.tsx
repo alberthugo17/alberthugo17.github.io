@@ -14,7 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavClick }) => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-950 py-12 transition-colors">
+    <footer className="border-t border-neutral-200/90 dark:border-neutral-800 bg-neutral-100 dark:bg-neutral-950 py-12 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand & Tagline */}

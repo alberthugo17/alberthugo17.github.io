@@ -222,7 +222,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Floating Minimal Info Card */}
-              <div className="absolute -bottom-4 -left-3 sm:-left-6 p-4 rounded-xl bg-neutral-50/50 dark:bg-neutral-900/50 backdrop-blur-xl border border-neutral-200/40 dark:border-neutral-800/40 shadow-lg max-w-[260px]">
+              <div className="absolute -bottom-4 -left-3 sm:-left-6 p-4 rounded-xl bg-white/85 dark:bg-neutral-900/60 backdrop-blur-xl border border-neutral-200/80 dark:border-neutral-800/40 shadow-lg max-w-[260px]">
                 <div className="text-xs font-medium text-neutral-500 dark:text-neutral-400">
                   Status Terkini
                 </div>

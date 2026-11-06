@@ -12,7 +12,7 @@ export const SkillsTab: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: catIdx * 0.08 }}
-            className="p-6 sm:p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 shadow-xs flex flex-col justify-between"
+            className="p-6 sm:p-8 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 shadow-xs flex flex-col justify-between"
           >
             <div>
               <h3 className="text-lg font-bold text-neutral-900 dark:text-neutral-100 tracking-tight mb-1">

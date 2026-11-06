@@ -6,6 +6,9 @@
 
 @import "tailwindcss";
 
+/* Mengaktifkan mode gelap berbasis kelas (.dark) pada Tailwind CSS v4 */
+@custom-variant dark (&:where(.dark, .dark *));
+
 @layer base {
   /* ===============================================================================
    * [BAGIAN FONT TEKS UTAMA]

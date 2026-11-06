@@ -17,21 +17,27 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       if (savedTheme === 'light' || savedTheme === 'dark') {
         return savedTheme;
       }
-      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        return 'dark';
-      }
+      return 'dark';
     }
-    return 'light';
+    return 'dark';
   });
 
   useEffect(() => {
     const root = document.documentElement;
     if (theme === 'dark') {
       root.classList.add('dark');
+      document.body.classList.add('dark');
+      root.style.colorScheme = 'dark';
     } else {
       root.classList.remove('dark');
+      document.body.classList.remove('dark');
+      root.style.colorScheme = 'light';
     }
-    localStorage.setItem('hugo_portfolio_theme', theme);
+    try {
+      localStorage.setItem('hugo_portfolio_theme', theme);
+    } catch {
+      // Ignore localStorage write failures
+    }
   }, [theme]);
 
   const toggleTheme = () => {

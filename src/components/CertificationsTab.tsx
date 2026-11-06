@@ -31,7 +31,7 @@ export const CertificationsTab: React.FC = () => {
             onClick={() => setSelectedCategory(cat)}
             className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-all ${
               selectedCategory === cat
-                ? 'bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 shadow-xs font-semibold'
+                ? 'bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 shadow-xs font-semibold'
                 : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
             }`}
           >
@@ -49,7 +49,7 @@ export const CertificationsTab: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.35, delay: index * 0.06 }}
             onClick={() => setActiveCert(cert)}
-            className="group flex flex-col justify-between p-6 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all hover:shadow-md cursor-pointer"
+            className="group flex flex-col justify-between p-6 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all hover:shadow-md cursor-pointer"
           >
             <div>
               {/* Header with Issuer Mark */}
@@ -145,7 +145,7 @@ export const CertificationsTab: React.FC = () => {
               initial={{ opacity: 0, scale: 0.96 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.96 }}
-              className="relative w-full max-w-lg bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-2xl p-6 z-10 space-y-6"
+              className="relative w-full max-w-lg bg-white dark:bg-neutral-900 border border-neutral-200/90 dark:border-neutral-800 rounded-2xl shadow-2xl p-6 z-10 space-y-6"
             >
               <div className="flex items-start justify-between">
                 <div className="flex items-center gap-3">

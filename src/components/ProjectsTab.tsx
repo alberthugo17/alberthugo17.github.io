@@ -38,7 +38,7 @@ export const ProjectsTab: React.FC = () => {
               onClick={() => setActiveCategory(cat)}
               className={`px-3.5 py-1.5 text-xs font-medium rounded-lg transition-all ${
                 activeCategory === cat
-                  ? 'bg-neutral-50 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 shadow-xs font-semibold'
+                  ? 'bg-white dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50 shadow-xs font-semibold'
                   : 'text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-200'
               }`}
             >
@@ -95,7 +95,7 @@ export const ProjectsTab: React.FC = () => {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className={`group flex flex-col justify-between rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 hover:shadow-md overflow-hidden ${
+              className={`group flex flex-col justify-between rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all duration-300 hover:shadow-md overflow-hidden ${
                 project.featured && index === 0 ? 'md:col-span-2' : ''
               }`}
             >
@@ -234,7 +234,7 @@ export const ProjectsTab: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 10 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-3xl bg-neutral-50 dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col"
+              className="relative w-full max-w-3xl bg-white dark:bg-neutral-900 border border-neutral-200/90 dark:border-neutral-800 rounded-2xl shadow-2xl overflow-hidden z-10 max-h-[90vh] flex flex-col"
             >
               {/* Modal Header */}
               <div className="p-6 border-b border-neutral-200 dark:border-neutral-800 flex items-start justify-between">

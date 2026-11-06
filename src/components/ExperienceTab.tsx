@@ -16,9 +16,9 @@ export const ExperienceTab: React.FC = () => {
             className="relative"
           >
             {/* Timeline bullet indicator */}
-            <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-neutral-900 dark:bg-neutral-100 border-4 border-neutral-50 dark:border-neutral-950" />
+            <div className="absolute -left-[31px] sm:-left-[39px] top-1.5 w-4 h-4 rounded-full bg-neutral-900 dark:bg-neutral-100 border-4 border-neutral-100 dark:border-neutral-950" />
 
-            <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900/60 shadow-xs">
+            <div className="p-6 sm:p-8 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 shadow-xs">
               {/* Header */}
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                 <div>
