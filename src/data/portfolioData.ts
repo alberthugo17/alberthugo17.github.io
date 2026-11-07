@@ -276,61 +276,64 @@ export const CERTIFICATIONS_DATA: CertificationItem[] = [
  * =================================================================================== */
 export const EDUCATION_DATA: EducationItem[] = [
   {
-    id: 'univ-cs',
-    degree: 'Sarjana Komputer (S.Kom.) – Teknik Informatika',
-    institution: 'Universitas Terkemuka Indonesia (Computer Science)',
-    period: '2020 – 2024',
-    location: 'Indonesia',
-    grade: 'IPK: 3.86 / 4.00 (Predikat Cum Laude)',
-    honors: 'Lulusan Terbaik Fakultas Ilmu Komputer dengan Predikat Kehormatan',
-    description: 'Fokus mendalam pada rekayasa perangkat lunak skala besar, arsitektur sistem terdistribusi, interaksi manusia-komputer, dan kecerdasan buatan terapan.',
+    id: 'binus-university',
+    degree: 'Sarjana Komputer (S.Kom.) – Computer Science / Teknik Informatika',
+    institution: 'BINUS University (Bina Nusantara)',
+    period: '2026 – Sekarang',
+    location: 'Malang, Jawa Timur',
+    grade: 'Mahasiswa Aktif',
+    honors: 'BNCC · HIMTI · KMK BINUS University',
+    description: 'Menempuh pendidikan tinggi di bidang Computer Science dengan fokus mendalam pada rekayasa perangkat lunak modern, komputasi terdistribusi, algoritma lanjutan, serta eksplorasi riset Machine Learning dan Deep Learning.',
     relevantCourses: [
-      'Arsitektur Sistem Terdistribusi',
-      'Desain & Analisis Algoritma Lanjut',
-      'Manajemen Basis Data & Relasional',
-      'Rekayasa Perangkat Lunak Berorientasi Objek',
-      'Keamanan Jaringan & Kriptografi',
-      'Pengembangan Aplikasi Berbasis Web & Mobile'
+      'Struktur Data & Analisis Algoritma',
+      'Pemrograman Berorientasi Objek Lanjut',
+      'Sistem Basis Data & Cloud Computing',
+      'Artificial Intelligence & Deep Learning Foundations'
     ],
     achievements: [
-      'Ketua Divisi Riset & Teknologi pada Himpunan Mahasiswa Teknik Informatika (2022 - 2023).',
-      'Juara 1 Hackathon Pengembangan Solusi Digital Tingkat Nasional (2023).',
-      'Penulis Skripsi: "Rancang Bangun Arsitektur Microservices Terdistribusi untuk Efisiensi Pemrosesan Transaksi Finansial Skala Besar".'
+      'Anggota aktif Bina Nusantara Computer Club (BNCC).',
+      'Anggota aktif Himpunan Mahasiswa Teknik Informatika (HIMTI) BINUS University.',
+      'Anggota aktif Keluarga Mahasiswa Katolik (KMK) BINUS University.',
+      'Eksplorasi riset kecerdasan buatan terapan, workshop teknologi, dan pengembangan proyek perangkat lunak modern.'
     ],
   },
   {
-    id: 'bangkit-academy',
-    degree: 'Bangkit Academy Graduate – Cloud Computing Track',
-    institution: 'Google, GoTo, Tokopedia, Traveloka (Kemendikbudristek)',
-    period: 'Februari 2023 – Juli 2023',
-    location: 'Malang, Indonesia',
-    grade: 'Predikat: Top Distinction Graduate (Top 5%)',
-    honors: 'Top 10 Best Capstone Project Se-Indonesia',
-    description: 'Program akselerasi talenta digital teknologi intensif binaan Google yang mencakup Cloud Architecture, deployment skala besar, CI/CD, dan kolaborasi lintas disiplin ilmu.',
+    id: 'sma-vanlith',
+    degree: 'Pendidikan Menengah Atas (SMA)',
+    institution: 'SMA Pangudi Luhur Van Lith Muntilan',
+    period: '2023 – 2026',
+    location: 'Muntilan, Magelang, Jawa Tengah',
+    grade: 'Siswa Aktif Berprestasi',
+    honors: 'Kepanitiaan Sidang Akademi & Kepemimpinan Berasrama',
+    description: 'Menempuh pendidikan di sekolah berasrama dengan fokus pembentukan karakter, kepemimpinan, integritas, keunggulan akademik, serta eksplorasi sains, matematika lanjut, dan teknologi komputasi.',
     relevantCourses: [
-      'Google Cloud Computing Specialization',
-      'Automated Testing & Continuous Delivery',
-      'Serverless Microservices Architecture',
-      'Professional Soft Skills & Tech Leadership'
+      'Matematika Lanjut & Logika Algoritmik',
+      'Fisika & Ilmu Pengetahuan Alam',
+      'Pengembangan Kepemimpinan & Organisasi',
+      'Teknologi Informasi & Eksplorasi AI'
     ],
     achievements: [
-      'Menerima sertifikasi Google Cloud Associate Cloud Engineer (ACE) bersponsor.',
-      'Memimpin tim capstone 6 anggota dalam merancang aplikasi rantai pasok digital untuk pedagang lokal.'
+      'Panitia Sidang Akademi Istimewa SMA Pangudi Luhur Van Lith Muntilan.',
+      'Aktif dalam kegiatan akademik berasrama serta pengembangan minat bakat di bidang kecerdasan buatan (Artificial Intelligence & Deep Learning).'
     ],
   },
   {
-    id: 'sma-highschool',
-    degree: 'Pendidikan Menengah Atas – Peminatan MIPA (Matematika & IPA)',
-    institution: 'SMA Negeri Unggulan',
-    period: '2017 – 2020',
-    location: 'Indonesia',
-    grade: 'Rata-rata Nilai Akhir: 93.8 / 100',
-    honors: 'Siswa Berprestasi Akademik & Olimpiade Sains',
-    description: 'Membangun pondasi logika matematika, fisika, dan algoritma dasar serta berpartisipasi aktif dalam kegiatan ekstrakurikuler sains dan pemrograman komputer.',
-    relevantCourses: ['Matematika Lanjut & Kalkulus', 'Fisika Teoretis & Eksperimental', 'Pengantar Logika Algoritmik'],
+    id: 'smp-wijayakusuma',
+    degree: 'Pendidikan Menengah Pertama (SMP)',
+    institution: 'SMP Wijaya Kusuma',
+    period: '2020 – 2023',
+    location: 'Seruyan, Kalimantan Tengah',
+    grade: 'Lulusan Berprestasi Akademik',
+    honors: 'Peserta & Peraih Prestasi Kompetisi Sains Nasional (KSN/OSN)',
+    description: 'Membangun fondasi logika matematika dan sains yang kuat serta aktif berpartisipasi dan meraih prestasi dalam ajang seleksi olimpiade sains tingkat kabupaten dan provinsi.',
+    relevantCourses: [
+      'Matematika Lanjut & Pemecahan Masalah',
+      'Ilmu Pengetahuan Alam (Fisika & Biologi)',
+      'Dasar Algoritma & Logika Berpikir'
+    ],
     achievements: [
-      'Medali Perunggu Olimpiade Sains Nasional (OSN) Bidang Informatika Tingkat Kota/Provinsi.',
-      'Koordinator Klub Robotika dan Pemrograman Komputer Sekolah.'
+      'Meraih peringkat dan mewakili sekolah dalam ajang Kompetisi Sains Nasional (KSN / OSN) Tingkat Kabupaten/Provinsi Bidang IPA & Matematika.',
+      'Siswa berprestasi akademik di tingkat sekolah.'
     ],
   },
 ];
