@@ -72,6 +72,9 @@ export interface EducationItem {
   description: string;
   relevantCourses: string[];
   achievements: string[];
+  useBinusLogo?: boolean;
+  logoUrl?: string;
+  logoAlt?: string;
 }
 
 export interface ExperienceItem {
@@ -279,6 +282,7 @@ export const EDUCATION_DATA: EducationItem[] = [
     id: 'binus-university',
     degree: 'Sarjana Komputer (S.Kom.) – Computer Science / Teknik Informatika',
     institution: 'BINUS University (Bina Nusantara)',
+    useBinusLogo: true,
     period: '2026 – Sekarang',
     location: 'Malang, Jawa Timur',
     grade: 'Mahasiswa Aktif',

@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { GraduationCap, Award, BookOpen, CheckCircle } from 'lucide-react';
 import { EDUCATION_DATA } from '../data/portfolioData';
+import { BinusLogo } from './BinusLogo';
 
 export const EducationTab: React.FC = () => {
   return (
@@ -16,14 +17,30 @@ export const EducationTab: React.FC = () => {
             className="p-6 sm:p-8 rounded-2xl border border-neutral-200/90 dark:border-neutral-800 bg-white dark:bg-neutral-900/60 hover:border-neutral-300 dark:hover:border-neutral-700 transition-all shadow-xs"
           >
             {/* Top row */}
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-4">
               <div>
-                <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 dark:text-neutral-400 mb-1">
+                {/* Logo Institusi (ditempatkan di atas periode & lokasi, siap untuk semua kotak pendidikan) */}
+                {item.useBinusLogo ? (
+                  <div className="mb-3 sm:mb-3.5 flex items-center text-neutral-900 dark:text-neutral-100 transition-colors">
+                    <BinusLogo className="h-16 sm:h-20 w-auto shrink-0 text-neutral-900 dark:text-neutral-100 transition-colors" />
+                  </div>
+                ) : item.logoUrl ? (
+                  <div className="mb-3 sm:mb-3.5 flex items-center">
+                    <img
+                      src={item.logoUrl}
+                      alt={item.logoAlt || item.institution}
+                      className="h-16 sm:h-20 w-auto object-contain shrink-0"
+                    />
+                  </div>
+                ) : null}
+
+                <div className="flex items-center gap-2 text-xs font-semibold text-neutral-500 dark:text-neutral-400 mb-1.5">
                   <GraduationCap className="w-4 h-4 text-neutral-700 dark:text-neutral-300" />
                   <span>{item.period}</span>
                   <span aria-hidden="true">·</span>
                   <span>{item.location}</span>
                 </div>
+
                 <h3 className="text-lg sm:text-xl font-bold text-neutral-900 dark:text-neutral-100 tracking-tight">
                   {item.degree}
                 </h3>
